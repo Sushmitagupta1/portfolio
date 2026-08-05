@@ -23,13 +23,17 @@
     card.appendChild(createChips(p.tech));
     card.appendChild(el("p", null, p.description));
     const actions = el("div", "card-actions");
-    const link = el("a", "card-link", "View on GitHub →");
+    const link = el("a", "card-link");
+    link.appendChild(document.createTextNode("View on GitHub"));
+    link.appendChild(el("span", "card-link-arrow", "→"));
     link.href = p.github;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     actions.appendChild(link);
     if (p.live) {
-      const live = el("a", "card-link card-link-live", "Visit Live Site ↗");
+      const live = el("a", "card-link card-link-live");
+      live.appendChild(document.createTextNode("Visit Live Site"));
+      live.appendChild(el("span", "card-link-arrow", "↗"));
       live.href = p.live;
       live.target = "_blank";
       live.rel = "noopener noreferrer";
@@ -178,6 +182,35 @@
     });
   }
 
+  function setupTypewriter() {
+    const h1 = $("hero-title");
+    const partA = h1.querySelector(".type-part");
+    const partB = h1.querySelector(".type-name");
+    const caret = h1.querySelector(".type-caret");
+    if (!partA || !partB) return;
+    const intro = "Hi, I'm ";
+    const name = "Sushmita Gupta";
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      partA.textContent = intro;
+      partB.textContent = name;
+      if (caret) caret.style.display = "none";
+      return;
+    }
+    const total = intro.length + name.length;
+    let i = 0;
+    function typeTick() {
+      partA.textContent = intro.slice(0, Math.min(i, intro.length));
+      if (i > intro.length) partB.textContent = name.slice(0, i - intro.length);
+      i++;
+      if (i <= total) {
+        window.setTimeout(typeTick, i <= intro.length ? 70 : 90);
+      } else if (caret) {
+        caret.classList.add("done");
+      }
+    }
+    window.setTimeout(typeTick, 900);
+  }
+
   function setupNav() {
     const toggle = document.querySelector(".nav-toggle");
     const links = document.getElementById("nav-links");
@@ -299,6 +332,7 @@
     renderContact();
     setupCV();
     setupNav();
+    setupTypewriter();
     setupReveal();
     setupCounters();
     setupBackTop();
