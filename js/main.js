@@ -297,14 +297,9 @@
     }, { threshold: 0.08 });
     items.forEach(function (i) {
       const idx = Array.prototype.indexOf.call(i.parentElement.children, i);
-      i.style.transitionDelay = Math.min(idx, 8) * 70 + "ms";
+      i.style.transitionDelay = Math.min(idx, 6) * 70 + "ms";
       io.observe(i);
     });
-    window.setTimeout(function () {
-      document.querySelectorAll(".reveal:not(.visible)").forEach(function (i) {
-        i.classList.add("visible");
-      });
-    }, 2000);
   }
 
   function setupBackTop() {

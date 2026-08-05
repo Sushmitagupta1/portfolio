@@ -291,7 +291,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 
 /* ===== Reveal animations ===== */
 .reveal { transition: opacity 0.8s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
-.js-reveal .reveal { opacity: 0; transform: scale(0.95); }
+.js-reveal .reveal { opacity: 0; transform: scale(0.92) translateY(28px); }
 .js-reveal .reveal.visible { opacity: 1; transform: none; }
 
 /* ===== Responsive ===== */
