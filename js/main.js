@@ -18,7 +18,7 @@
     return wrap;
   }
   function createProjectCard(p, featured) {
-    const card = el("article", "card" + (featured ? " card-featured" : ""));
+    const card = el("article", "card reveal" + (featured ? " card-featured" : ""));
     card.appendChild(el("h3", null, p.name));
     card.appendChild(createChips(p.tech));
     card.appendChild(el("p", null, p.description));
@@ -55,11 +55,12 @@
       meta.appendChild(a);
     });
 
+    const statsWrap = $("hero-stats");
     D.stats.forEach(function (s) {
       const stat = el("div", "stat");
       stat.appendChild(el("div", "value", s.value));
       stat.appendChild(el("div", "label", s.label));
-      document.querySelector(".hero .container").appendChild(stat);
+      statsWrap.appendChild(stat);
     });
   }
 
@@ -73,7 +74,7 @@
   function renderSkills() {
     const wrap = $("skills-content");
     D.skills.forEach(function (group) {
-      const card = el("div", "skill-card");
+      const card = el("div", "skill-card reveal");
       card.appendChild(el("h3", null, group.category));
       card.appendChild(createChips(group.items));
       wrap.appendChild(card);
@@ -83,7 +84,7 @@
   function renderExperience() {
     const wrap = $("experience-content");
     D.experience.forEach(function (job) {
-      const item = el("div", "tl-item");
+      const item = el("div", "tl-item reveal");
       const head = el("div", "tl-head");
       head.appendChild(el("h3", null, job.role));
       head.appendChild(el("span", "period", job.period));
@@ -111,7 +112,7 @@
   function renderEducation() {
     const wrap = $("education-content");
     D.education.forEach(function (e) {
-      const card = el("div", "edu-card");
+      const card = el("div", "edu-card reveal");
       card.appendChild(el("h3", null, e.degree));
       card.appendChild(el("p", "institution", e.institution));
       card.appendChild(el("p", "period", e.period + (e.score ? " · " + e.score : "")));
