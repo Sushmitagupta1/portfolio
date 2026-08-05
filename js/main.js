@@ -201,13 +201,16 @@
     }, { passive: true });
   }
 
+  function setFinalValue(v) {
+    v.textContent = v.dataset.prefix + Math.round(parseFloat(v.dataset.count)) + v.dataset.suffix;
+    v.dataset.done = "1";
+  }
+
   function setupCounters() {
     const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const counters = document.querySelectorAll(".stat .value[data-count]");
     if (!("IntersectionObserver" in window) || reduced) {
-      counters.forEach(function (v) {
-        v.textContent = v.dataset.prefix + v.dataset.count + v.dataset.suffix;
-      });
+      counters.forEach(setFinalValue);
       return;
     }
     const io = new IntersectionObserver(function (entries) {
@@ -216,8 +219,13 @@
         io.unobserve(entry.target);
         animateCount(entry.target, parseFloat(entry.target.dataset.count), 900);
       });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.3 });
     counters.forEach(function (v) { io.observe(v); });
+    window.setTimeout(function () {
+      counters.forEach(function (v) {
+        if (v.dataset.done !== "1") setFinalValue(v);
+      });
+    }, 3000);
   }
 
   function animateCount(node, target, dur) {
@@ -228,7 +236,7 @@
       const t = Math.min((now - start) / dur, 1);
       const eased = 1 - Math.pow(1 - t, 3);
       node.textContent = prefix + Math.round(target * eased) + suffix;
-      if (t < 1) requestAnimationFrame(tick);
+      if (t < 1) { requestAnimationFrame(tick); } else { node.dataset.done = "1"; }
     }
     requestAnimationFrame(tick);
   }
