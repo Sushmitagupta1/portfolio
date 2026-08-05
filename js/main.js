@@ -154,13 +154,9 @@
 
   function setupCV() {
     const path = "Resume.pdf";
-    fetch(path, { method: "HEAD" }).then(function (res) {
-      if (res.ok) {
-        document.querySelectorAll(".btn-primary[id$='cv'], #download-cv, #contact-cv").forEach(function (a) {
-          a.href = path;
-        });
-      }
-    }).catch(function () {});
+    document.querySelectorAll("#download-cv, #contact-cv").forEach(function (a) {
+      a.href = path;
+    });
   }
 
   function setupNav() {
