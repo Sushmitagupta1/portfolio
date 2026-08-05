@@ -255,6 +255,12 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 .hero-meta { animation-delay: 0.44s; }
 .hero-photo-wrap { animation-delay: 0.18s; }
 
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.86); }
+  to { opacity: 1; transform: none; }
+}
+.hero-photo-wrap { animation: zoomIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: 0.2s; }
+
 @keyframes caretBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 .type-caret {
   display: inline-block; width: 2px; height: 1em;
@@ -284,8 +290,8 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 .back-top:active { transform: translateY(-1px) scale(1.02); }
 
 /* ===== Reveal animations ===== */
-.reveal { transition: opacity 0.6s ease, transform 0.6s ease; }
-.js-reveal .reveal { opacity: 0; transform: translateY(24px); }
+.reveal { transition: opacity 0.8s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+.js-reveal .reveal { opacity: 0; transform: scale(0.95); }
 .js-reveal .reveal.visible { opacity: 1; transform: none; }
 
 /* ===== Responsive ===== */

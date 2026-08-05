@@ -203,7 +203,7 @@
       if (i > intro.length) partB.textContent = name.slice(0, i - intro.length);
       i++;
       if (i <= total) {
-        window.setTimeout(typeTick, i <= intro.length ? 70 : 90);
+        window.setTimeout(typeTick, i <= intro.length ? 50 : 65);
       } else if (caret) {
         caret.classList.add("done");
       }
@@ -297,7 +297,7 @@
     }, { threshold: 0.08 });
     items.forEach(function (i) {
       const idx = Array.prototype.indexOf.call(i.parentElement.children, i);
-      i.style.transitionDelay = Math.min(idx, 8) * 50 + "ms";
+      i.style.transitionDelay = Math.min(idx, 8) * 70 + "ms";
       io.observe(i);
     });
     window.setTimeout(function () {
