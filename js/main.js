@@ -71,17 +71,7 @@
     const statsWrap = $("hero-stats");
     D.stats.forEach(function (s) {
       const stat = el("div", "stat reveal");
-      const value = el("div", "value");
-      const m = String(s.value).match(/^(\D*)(\d+(?:\.\d+)?)(.*)$/);
-      if (m) {
-        value.dataset.count = m[2];
-        value.dataset.prefix = m[1];
-        value.dataset.suffix = m[3];
-        value.textContent = m[1] + "0" + m[3];
-      } else {
-        value.textContent = s.value;
-      }
-      stat.appendChild(value);
+      stat.appendChild(el("div", "value", s.value));
       stat.appendChild(el("div", "label", s.label));
       statsWrap.appendChild(stat);
     });
@@ -182,35 +172,6 @@
     });
   }
 
-  function setupTypewriter() {
-    const h1 = $("hero-title");
-    const partA = h1.querySelector(".type-part");
-    const partB = h1.querySelector(".type-name");
-    const caret = h1.querySelector(".type-caret");
-    if (!partA || !partB) return;
-    const intro = "Hi, I'm ";
-    const name = "Sushmita Gupta";
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      partA.textContent = intro;
-      partB.textContent = name;
-      if (caret) caret.style.display = "none";
-      return;
-    }
-    const total = intro.length + name.length;
-    let i = 0;
-    function typeTick() {
-      partA.textContent = intro.slice(0, Math.min(i, intro.length));
-      if (i > intro.length) partB.textContent = name.slice(0, i - intro.length);
-      i++;
-      if (i <= total) {
-        window.setTimeout(typeTick, i <= intro.length ? 50 : 65);
-      } else if (caret) {
-        caret.classList.add("done");
-      }
-    }
-    window.setTimeout(typeTick, 900);
-  }
-
   function setupNav() {
     const toggle = document.querySelector(".nav-toggle");
     const links = document.getElementById("nav-links");
@@ -241,46 +202,6 @@
         a.classList.toggle("active", a.getAttribute("href") === "#" + current);
       });
     }, { passive: true });
-  }
-
-  function setFinalValue(v) {
-    v.textContent = v.dataset.prefix + Math.round(parseFloat(v.dataset.count)) + v.dataset.suffix;
-    v.dataset.done = "1";
-  }
-
-  function setupCounters() {
-    const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const counters = document.querySelectorAll(".stat .value[data-count]");
-    if (!("IntersectionObserver" in window) || reduced) {
-      counters.forEach(setFinalValue);
-      return;
-    }
-    const io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        io.unobserve(entry.target);
-        animateCount(entry.target, parseFloat(entry.target.dataset.count), 900);
-      });
-    }, { threshold: 0.3 });
-    counters.forEach(function (v) { io.observe(v); });
-    window.setTimeout(function () {
-      counters.forEach(function (v) {
-        if (v.dataset.done !== "1") setFinalValue(v);
-      });
-    }, 3000);
-  }
-
-  function animateCount(node, target, dur) {
-    const start = performance.now();
-    const prefix = node.dataset.prefix || "";
-    const suffix = node.dataset.suffix || "";
-    function tick(now) {
-      const t = Math.min((now - start) / dur, 1);
-      const eased = 1 - Math.pow(1 - t, 3);
-      node.textContent = prefix + Math.round(target * eased) + suffix;
-      if (t < 1) { requestAnimationFrame(tick); } else { node.dataset.done = "1"; }
-    }
-    requestAnimationFrame(tick);
   }
 
   function setupReveal() {
@@ -327,9 +248,7 @@
     renderContact();
     setupCV();
     setupNav();
-    setupTypewriter();
     setupReveal();
-    setupCounters();
     setupBackTop();
     setupFooter();
   }
