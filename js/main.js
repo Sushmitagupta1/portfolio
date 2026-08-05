@@ -193,10 +193,8 @@
 
   function setupReveal() {
     const items = document.querySelectorAll(".reveal");
-    if (!("IntersectionObserver" in window)) {
-      items.forEach(function (i) { i.classList.add("visible"); });
-      return;
-    }
+    if (!("IntersectionObserver" in window)) return;
+    document.body.classList.add("js-reveal");
     const io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -206,6 +204,11 @@
       });
     }, { threshold: 0.08 });
     items.forEach(function (i) { io.observe(i); });
+    window.setTimeout(function () {
+      document.querySelectorAll(".reveal:not(.visible)").forEach(function (i) {
+        i.classList.add("visible");
+      });
+    }, 2000);
   }
 
   function setupBackTop() {
