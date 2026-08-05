@@ -168,6 +168,9 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 .card p { color: var(--muted); font-size: 0.88rem; flex: 1; }
 .card .card-link { color: var(--accent); font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; width: fit-content; }
 .card .card-link:hover { color: var(--accent-2); }
+.card-actions { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.card-link-live { color: var(--accent-2); }
+.card-link-live:hover { color: var(--accent); }
 .card-featured { position: relative; overflow: hidden; }
 .card-featured::after {
   content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;

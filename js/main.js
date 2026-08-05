@@ -22,11 +22,20 @@
     card.appendChild(el("h3", null, p.name));
     card.appendChild(createChips(p.tech));
     card.appendChild(el("p", null, p.description));
+    const actions = el("div", "card-actions");
     const link = el("a", "card-link", "View on GitHub →");
     link.href = p.github;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    card.appendChild(link);
+    actions.appendChild(link);
+    if (p.live) {
+      const live = el("a", "card-link card-link-live", "Visit Live Site ↗");
+      live.href = p.live;
+      live.target = "_blank";
+      live.rel = "noopener noreferrer";
+      actions.appendChild(live);
+    }
+    card.appendChild(actions);
     return card;
   }
 

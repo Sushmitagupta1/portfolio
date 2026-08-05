@@ -80,7 +80,8 @@ const PORTFOLIO_DATA = {
       name: "Shagun Catering Website",
       tech: ["HTML5", "CSS3", "Vanilla JavaScript"],
       description: "Fully responsive catering website with hero slideshow, cuisine and service grids, filterable gallery, contact & WhatsApp integration and floating CTAs.",
-      github: "https://github.com/Sushmitagupta1/Shagun-Catering-Website-"
+      github: "https://github.com/Sushmitagupta1/Shagun-Catering-Website-",
+      live: "https://shaguncatering.com/"
     },
     {
       name: "FMS — Facility Management System",
@@ -136,7 +137,8 @@ const PORTFOLIO_DATA = {
       name: "Shagun Catering Website",
       tech: ["HTML5", "CSS3", "Vanilla JavaScript"],
       description: "Fully responsive catering website with hero slideshow, cuisine and service grids, filterable gallery, contact & WhatsApp integration and floating CTAs.",
-      github: "https://github.com/Sushmitagupta1/Shagun-Catering-Website-"
+      github: "https://github.com/Sushmitagupta1/Shagun-Catering-Website-",
+      live: "https://shaguncatering.com/"
     },
     {
       name: "HRMS Salary Slip Automation",
