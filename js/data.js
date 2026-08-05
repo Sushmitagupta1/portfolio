@@ -77,16 +77,28 @@ const PORTFOLIO_DATA = {
       github: "https://github.com/Sushmitagupta1/Shagun-CRM-ERP"
     },
     {
+      name: "Shagun Catering Website",
+      tech: ["HTML5", "CSS3", "Vanilla JavaScript"],
+      description: "Fully responsive catering website with hero slideshow, cuisine and service grids, filterable gallery, contact & WhatsApp integration and floating CTAs.",
+      github: "https://github.com/Sushmitagupta1/Shagun-Catering-Website-"
+    },
+    {
+      name: "FMS — Facility Management System",
+      tech: ["Google Apps Script", "Google Sheets", "HTML", "CSS", "JavaScript"],
+      description: "Web app on Google Apps Script with a Sheets backend — role-based Admin/Employee portals, recurring daily/weekly/monthly task assignment, real-time status tracking with audit logs.",
+      github: "https://github.com/Sushmitagupta1/fms-system-"
+    },
+    {
+      name: "Automated Meeting Management System",
+      tech: ["React 18", "Bootstrap 5", "FastAPI", "SQLite", "OpenAI Whisper", "Google Gemini"],
+      description: "Meeting automation platform for recording upload, speech-to-text transcription, AI summarization and action-item extraction with PDF/Excel export and calendar view.",
+      github: "https://github.com/Sushmitagupta1/automated-meeting-management-system"
+    },
+    {
       name: "HRMS Salary Slip Automation",
       tech: ["Python", "Flask", "Node.js (OpenWA)", "SMTP"],
       description: "Automated monthly salary-slip distribution via WhatsApp and Email by matching Excel employee data with PDF slips — Flask dashboard, dry-run mode, retries and delivery summaries.",
       github: "https://github.com/Sushmitagupta1/HRMS"
-    },
-    {
-      name: "Enterprise Inventory Management System",
-      tech: ["Django 5", "Django REST Framework", "React 18", "TypeScript", "PostgreSQL", "SimpleJWT"],
-      description: "Full-stack inventory platform with multi-warehouse stock, purchase/sales orders, Code-128 barcode and QR generation with lookup API, low-stock alerts, and PDF/Excel reporting.",
-      github: "https://github.com/Sushmitagupta1/Inventory-management-system"
     }
   ],
   projects: [

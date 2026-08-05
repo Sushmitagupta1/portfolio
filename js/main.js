@@ -57,8 +57,18 @@
 
     const statsWrap = $("hero-stats");
     D.stats.forEach(function (s) {
-      const stat = el("div", "stat");
-      stat.appendChild(el("div", "value", s.value));
+      const stat = el("div", "stat reveal");
+      const value = el("div", "value");
+      const m = String(s.value).match(/^(\D*)(\d+(?:\.\d+)?)(.*)$/);
+      if (m) {
+        value.dataset.count = m[2];
+        value.dataset.prefix = m[1];
+        value.dataset.suffix = m[3];
+        value.textContent = m[1] + "0" + m[3];
+      } else {
+        value.textContent = s.value;
+      }
+      stat.appendChild(value);
       stat.appendChild(el("div", "label", s.label));
       statsWrap.appendChild(stat);
     });
@@ -191,6 +201,38 @@
     }, { passive: true });
   }
 
+  function setupCounters() {
+    const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const counters = document.querySelectorAll(".stat .value[data-count]");
+    if (!("IntersectionObserver" in window) || reduced) {
+      counters.forEach(function (v) {
+        v.textContent = v.dataset.prefix + v.dataset.count + v.dataset.suffix;
+      });
+      return;
+    }
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        animateCount(entry.target, parseFloat(entry.target.dataset.count), 900);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function (v) { io.observe(v); });
+  }
+
+  function animateCount(node, target, dur) {
+    const start = performance.now();
+    const prefix = node.dataset.prefix || "";
+    const suffix = node.dataset.suffix || "";
+    function tick(now) {
+      const t = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      node.textContent = prefix + Math.round(target * eased) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
   function setupReveal() {
     const items = document.querySelectorAll(".reveal");
     if (!("IntersectionObserver" in window)) return;
@@ -203,7 +245,11 @@
         }
       });
     }, { threshold: 0.08 });
-    items.forEach(function (i) { io.observe(i); });
+    items.forEach(function (i) {
+      const idx = Array.prototype.indexOf.call(i.parentElement.children, i);
+      i.style.transitionDelay = Math.min(idx, 8) * 50 + "ms";
+      io.observe(i);
+    });
     window.setTimeout(function () {
       document.querySelectorAll(".reveal:not(.visible)").forEach(function (i) {
         i.classList.add("visible");
@@ -237,6 +283,7 @@
     setupCV();
     setupNav();
     setupReveal();
+    setupCounters();
     setupBackTop();
     setupFooter();
   }
