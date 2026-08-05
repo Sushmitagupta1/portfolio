@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const D = window.PORTFOLIO_DATA;
+  const D = typeof PORTFOLIO_DATA !== "undefined" ? PORTFOLIO_DATA : window.PORTFOLIO_DATA;
 
   function $(id) { return document.getElementById(id); }
   function el(tag, cls, text) {
