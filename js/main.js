@@ -117,7 +117,10 @@
       featured.appendChild(createProjectCard(p, true));
     });
     const all = $("projects-content");
-    D.projects.forEach(function (p) {
+    const featuredNames = D.featuredProjects.map(function (p) { return p.name; });
+    D.projects.filter(function (p) {
+      return featuredNames.indexOf(p.name) === -1;
+    }).forEach(function (p) {
       all.appendChild(createProjectCard(p, false));
     });
   }
