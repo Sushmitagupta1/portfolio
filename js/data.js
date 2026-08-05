@@ -13,7 +13,7 @@ const PORTFOLIO_DATA = {
     photoFallback: "https://avatars.githubusercontent.com/u/178362519?v=4"
   },
   stats: [
-    { label: "Years Experience", value: "2+" },
+    { label: "Years Experience", value: "1+" },
     { label: "Projects Built", value: "13" },
     { label: "Technologies", value: "30+" }
   ],
