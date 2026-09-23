@@ -14,8 +14,8 @@ const PORTFOLIO_DATA = {
   },
   stats: [
     { label: "Years Experience", value: "1+" },
-    { label: "Projects Built", value: "13" },
-    { label: "Technologies", value: "30+" }
+    { label: "Projects Built", value: "14" },
+    { label: "Technologies", value: "35+" }
   ],
   about: [
     "AI Engineer and Full Stack Developer with hands-on experience in AI-powered business automation, ERP/HRMS solutions, payroll systems, inventory management, and full-stack web development.",
