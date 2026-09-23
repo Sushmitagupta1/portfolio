@@ -2,9 +2,9 @@ const PORTFOLIO_DATA = {
   profile: {
     name: "Sushmita Gupta",
     headline: "AI Engineer | Full Stack Developer | Python Developer",
-    tagline: "Building AI-powered business automation, ERP & HRMS solutions with Python, Django and React.",
+    tagline: "Building AI-powered automation for business and architectural design workflows with Python, Django, React, Revit and Dynamo.",
     availability: "Open to Work",
-    location: "Ahmedabad, India",
+    location: "Kolkata, West Bengal, India",
     email: "guptasushmita166@gmail.com",
     phone: "+91 7003033902",
     github: "https://github.com/Sushmitagupta1",
@@ -19,23 +19,40 @@ const PORTFOLIO_DATA = {
   ],
   about: [
     "AI Engineer and Full Stack Developer with hands-on experience in AI-powered business automation, ERP/HRMS solutions, payroll systems, inventory management, and full-stack web development.",
-    "Skilled in Python, Django, ERPNext, Frappe Framework, REST APIs, Docker, databases, and modern web technologies. Experienced in developing scalable business applications, intelligent automation solutions, and enterprise systems."
+    "Skilled in Python, Django, ERPNext, Frappe Framework, REST APIs, Docker, databases, and modern web technologies. Experienced in developing scalable business applications, intelligent automation solutions, and enterprise systems.",
+    "Working with Autodesk Revit and AutoCAD, I build AI-assisted workflows for architectural planning, drafting and BIM processes — creating Python scripts and Dynamo workflows that automate repetitive design and documentation tasks and integrate Claude AI into architecture workflows."
   ],
   skills: [
-    { category: "Programming Languages", items: ["Python", "Java", "JavaScript", "TypeScript", "SQL", "C"] },
-    { category: "Frontend", items: ["HTML", "CSS", "React.js", "Vite", "Tailwind CSS", "ShadCN UI", "Responsive Web Design"] },
-    { category: "Backend", items: ["Django", "Django REST Framework", "ERPNext", "Frappe Framework", "Node.js", "REST APIs", "FastAPI"] },
+    { category: "Programming Languages", items: ["Python", "Java", "JavaScript", "TypeScript", "SQL"] },
+    { category: "Frontend", items: ["HTML", "CSS", "React.js", "Vite", "Tailwind CSS", "Responsive Web Design"] },
+    { category: "Backend", items: ["Django", "Django REST Framework", "ERPNext", "Frappe Framework", "Node.js", "REST APIs"] },
     { category: "Databases", items: ["PostgreSQL", "MariaDB", "MongoDB", "MySQL", "SQLite"] },
-    { category: "Data Science & AI", items: ["Pandas", "NumPy", "OpenCV", "Scikit-Learn", "Matplotlib", "Seaborn", "Gemini API", "OpenAI Whisper"] },
+    { category: "Data Science & AI", items: ["Pandas", "NumPy", "OpenCV", "Scikit-Learn", "Matplotlib", "Seaborn", "Gemini API", "OpenAI Whisper", "Claude AI"] },
+    { category: "BIM & Design Automation", items: ["Autodesk Revit", "AutoCAD", "Dynamo", "Python Scripting", "Building Information Modeling (BIM)", "Architectural Documentation Workflows"] },
     { category: "Reporting & Automation", items: ["OpenPyXL", "ReportLab", "Excel Automation", "PDF Generation", "QR & Barcode Generation"] },
     { category: "Tools & Platforms", items: ["Git", "GitHub", "Docker", "VS Code", "Power BI", "Axios", "TanStack React Query", "Google Apps Script"] },
-    { category: "Core Concepts", items: ["Data Structures", "OOP", "DBMS", "Computer Networks", "SDLC", "Business Process Automation"] }
+    { category: "Core Concepts", items: ["Data Structures", "OOP", "DBMS", "Computer Networks", "Business Process Automation"] }
   ],
   experience: [
     {
+      role: "AI Engineer",
+      company: "Global Health Space",
+      period: "September 2026 - Present",
+      location: "Ahmedabad",
+      points: [
+        "Develop AI-driven solutions for architectural design and building documentation workflows.",
+        "Work with Autodesk Revit and AutoCAD for architectural drawings, modeling, and documentation.",
+        "Create Python scripts and Dynamo workflows to automate repetitive architectural and BIM tasks.",
+        "Integrate Claude AI with Revit and other design workflows to assist with automation, design generation, and productivity.",
+        "Develop and optimize AI-assisted workflows for architectural planning, drafting, and BIM processes.",
+        "Combine AI, Python, Dynamo, Revit, and AutoCAD to improve efficiency and reduce manual work in architectural projects."
+      ],
+      skillsUsed: ["Revit", "AutoCAD", "Dynamo", "Python Scripting", "Claude AI", "BIM", "Building Documentation", "Automation"]
+    },
+    {
       role: "AI Engineer & Software Developer",
       company: "Upper Crust",
-      period: "May 2026 - Present",
+      period: "May 2026 - August 2026",
       location: "Ahmedabad",
       points: [
         "Developed and implemented AI-powered business automation solutions to streamline HR, payroll, and operational workflows.",
@@ -45,7 +62,8 @@ const PORTFOLIO_DATA = {
         "Automated payroll processing, salary slip generation, attendance tracking, and employee record management.",
         "Designed and integrated REST APIs for seamless communication between business applications.",
         "Developed inventory management and reporting systems to improve stock monitoring and operational efficiency.",
-        "Managed Docker-based deployments, server configurations, and application maintenance."
+        "Managed Docker-based deployments, server configurations, and application maintenance.",
+        "Collaborated with management teams to analyze business requirements and deliver technology-driven solutions."
       ],
       skillsUsed: ["Python", "AI/ML", "ERPNext", "Frappe Framework", "Docker", "REST APIs", "MySQL/MariaDB", "JavaScript", "HTML", "CSS", "Git", "GitHub", "Business Automation", "HRMS", "Payroll Systems", "Inventory Management"]
     },
@@ -64,6 +82,12 @@ const PORTFOLIO_DATA = {
     }
   ],
   featuredProjects: [
+    {
+      name: "AI Engineering OS — Autonomous AI Software-Engineering Agent",
+      tech: ["Python 3.11+", "MCP", "tree-sitter", "SQLite", "Docker", "pytest", "opencode CLI"],
+      description: "Autonomous AI software-engineering agent built as 3 MCP servers (freeworker, repoindex, toolbox) that plans, codes, debugs, tests, self-reviews and learns — with a tiered cost policy (free Zen models for bulk work, LLM judgment for architecture/security), sandboxed test-fix loop, review-before-apply with rollback, durable memory and an eval suite with metrics.",
+      github: "https://github.com/Sushmitagupta1/ai-engineering-os"
+    },
     {
       name: "Revly — AI-Powered Review & Reputation Management Platform",
       tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "FastAPI", "SQLAlchemy", "PostgreSQL", "Docker"],
@@ -103,6 +127,12 @@ const PORTFOLIO_DATA = {
     }
   ],
   projects: [
+    {
+      name: "AI Engineering OS — Autonomous AI Software-Engineering Agent",
+      tech: ["Python 3.11+", "MCP", "tree-sitter", "SQLite", "Docker", "pytest", "opencode CLI"],
+      description: "Autonomous AI software-engineering agent built as 3 MCP servers (freeworker, repoindex, toolbox) that plans, codes, debugs, tests, self-reviews and learns, with a tiered cost policy, sandboxed test-fix loop, review-before-apply, durable memory and an eval suite with metrics.",
+      github: "https://github.com/Sushmitagupta1/ai-engineering-os"
+    },
     {
       name: "FEFO Smart Inventory & Expiry Management",
       tech: ["Node.js", "Express", "MongoDB", "React 18", "Vite", "Tailwind CSS"],
@@ -202,7 +232,7 @@ const PORTFOLIO_DATA = {
   contact: {
     email: "guptasushmita166@gmail.com",
     phone: "+91 7003033902",
-    location: "Ahmedabad, India",
+    location: "Kolkata, West Bengal, India",
     github: "https://github.com/Sushmitagupta1",
     linkedin: "https://www.linkedin.com/in/susmita-gupta-07b693249"
   }
