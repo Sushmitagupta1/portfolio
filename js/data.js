@@ -36,7 +36,7 @@ const PORTFOLIO_DATA = {
   experience: [
     {
       role: "AI Engineer",
-      company: "Global Health Space",
+      company: "Global Healthspace Studio Private Limited",
       period: "September 2026 - Present",
       location: "Ahmedabad",
       points: [
