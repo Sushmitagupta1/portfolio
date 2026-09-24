@@ -14,7 +14,7 @@ const PORTFOLIO_DATA = {
   },
   stats: [
     { label: "Years Experience", value: "1+" },
-    { label: "Projects Built", value: "14" },
+    { label: "Projects Built", value: "15" },
     { label: "Technologies", value: "35+" }
   ],
   about: [
@@ -89,6 +89,12 @@ const PORTFOLIO_DATA = {
       github: "https://github.com/Sushmitagupta1/ai-engineering-os"
     },
     {
+      name: "AI Skincare WhatsApp Assistant — AI-Powered Customer Support & Sales Bot",
+      tech: ["Python", "FastAPI", "Node.js", "TypeScript", "Baileys", "Docker", "REST APIs"],
+      description: "AI-powered WhatsApp skincare assistant for skin analysis, personalized product recommendations, FAQs and automated ordering — with customer profiling, product matching, order workflow, human handoff and Docker deployment.",
+      github: "https://github.com/Sushmitagupta1/ai-skincare-whatsapp-assistant-bot"
+    },
+    {
       name: "Revly — AI-Powered Review & Reputation Management Platform",
       tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "FastAPI", "SQLAlchemy", "PostgreSQL", "Docker"],
       description: "Full-stack SaaS dashboard aggregating reviews from Google Business, Zomato, Swiggy, Reelo, Magicpin and TripAdvisor for multi-location restaurant brands — sentiment trends, NPS gauges, ratings distribution, location leaderboards, AI reply generation and an 'Ask Revly' chat assistant. Deployed as an installable PWA via Docker Compose on Oracle Cloud.",
@@ -132,6 +138,12 @@ const PORTFOLIO_DATA = {
       tech: ["Python 3.11+", "MCP", "tree-sitter", "SQLite", "Docker", "pytest", "opencode CLI"],
       description: "Autonomous AI software-engineering agent built as 3 MCP servers (freeworker, repoindex, toolbox) that plans, codes, debugs, tests, self-reviews and learns, with a tiered cost policy, sandboxed test-fix loop, review-before-apply, durable memory and an eval suite with metrics.",
       github: "https://github.com/Sushmitagupta1/ai-engineering-os"
+    },
+    {
+      name: "AI Skincare WhatsApp Assistant — AI-Powered Customer Support & Sales Bot",
+      tech: ["Python", "FastAPI", "Node.js", "TypeScript", "Baileys", "Docker", "REST APIs"],
+      description: "AI-powered WhatsApp skincare assistant for skin analysis, personalized product recommendations, FAQs and automated ordering — with customer profiling, product matching, order workflow, human handoff and Docker deployment.",
+      github: "https://github.com/Sushmitagupta1/ai-skincare-whatsapp-assistant-bot"
     },
     {
       name: "FEFO Smart Inventory & Expiry Management",
